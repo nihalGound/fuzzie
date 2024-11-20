@@ -1,101 +1,88 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ContainerScroll } from "../components/global/container-scroll-animation";
+import Navbar from "../components/global/navbar";
+import { InfiniteMovingCards } from "../components/global/infinite-moving-cards";
+import { clients, products } from "@/lib/constants";
+import { HeroParallax } from "@/components/global/connect-parallax";
+import { LampComponent } from "@/components/global/lamp";
+import { SubscriptionCard } from "@/components/global/3d-card";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="flex items-center justify-center flex-col">
+      <Navbar />
+      <section className="h-screen min-w-screen-sm md:w-full bg-neutral-950 rounded-md !overflow-visible relative flex flex-col items-center antialiased">
+      <div className="absolute h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,#223_100%)]"></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  <div className="relative flex flex-col items-center min-w-screen-sm md:w-full mt-[-80px] sm:mt-[-60px] md:mt-[-50px] lg:mt-[-40px]">
+    <ContainerScroll
+      titleComponent={
+        <div className="flex flex-col items-center justify-center w-full">
+          <Button
+            size={'lg'}
+            className="p-4 sm:p-6 md:p-8 mb-4 md:mb-6 lg:mb-8 w-full max-w-xs sm:max-w-md lg:max-w-lg border-t-2 rounded-full border-[#4D4D4D] bg-[#1F1F1F] hover:bg-white group transition-all duration-500 flex items-center justify-center gap-4 hover:shadow-xl hover:shadow-neutral-500"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-neutral-500 to-neutral-600 text-lg sm:text-xl md:text-2xl lg:text-3xl font-sans group-hover:bg-gradient-to-r group-hover:from-black group-hover:to-black">
+              Start For Free Today
+            </span>
+          </Button>
+
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-600 font-sans font-bold text-center leading-tight">
+            Automate Your Work With Fuzzie
+          </h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      }
+    />
+  </div>
+</section>
+      <InfiniteMovingCards
+        items={clients}
+        direction="right"
+        speed="slow"
+      />
+    <section className="max-w-full">
+      <HeroParallax products={products}></HeroParallax>
+    </section>
+    <section className="mt-[-500px] w-full">
+      <LampComponent />
+      <div className="flex flex-wrap items-center justify-center flex-col md:flex-row md:gap-8 -mt-72">
+        <SubscriptionCard
+          name="Hobby"
+          price={0}
+          about="Get a glimpse of what our software is capable of. Just a heads
+                up you'll never leave us after this!"
+          features={["3 Free automations", "100 tasks per month", "Two-step Actions"]}
+        />
+        <SubscriptionCard
+          name="Pro Plan"
+          price={29}
+          about="Get a glimpse of what our software is capable of. Just a heads
+                up you'll never leave us after this!"
+          features={["3 Free automations", "100 tasks per month", "Two-step Actions"]}
+        />
+        <SubscriptionCard
+          name="Unlimited"
+          price={99}
+          about="Get a glimpse of what our software is capable of. Just a heads
+                up you'll never leave us after this!"
+          features={["3 Free automations", "100 tasks per month", "Two-step Actions"]}
+        />
+      </div>
+    </section>
+    {/* <section className="bg-neutral-950 text-white py-8 mt-10">
+  <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+    <div className="flex flex-col md:flex-row md:space-x-8">
+      <a href="/about" className="hover:text-neutral-400">About Us</a>
+      <a href="/contact" className="hover:text-neutral-400">Contact</a>
+      <a href="/privacy" className="hover:text-neutral-400">Privacy Policy</a>
+      <a href="/terms" className="hover:text-neutral-400">Terms of Service</a>
     </div>
+    <div className="mt-4 md:mt-0">
+      <span className="text-sm">© 2024 Fuzzie. All rights reserved.</span>
+    </div>
+  </div>
+</section> */}
+
+    </main>
   );
 }
